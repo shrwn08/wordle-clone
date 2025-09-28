@@ -42,3 +42,4 @@ const wordleSlice = createSlice({
 });
 
 export const { newGame, setAttempt, submitRow } = wordleSlice.actions;
+export default wordleSlice.reducer;
