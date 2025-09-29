@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { newGame, setAttempt, submitRow } from "../redux/slices/wordleSlice";
 import { Words } from "../redux/slices/data";
 import { Button, Row, Col, Form } from "react-bootstrap";
-import VirtualKeyboard from "./VirtualKeyboard";
+import VirtualKeyboard from "./Game/Keyboard";
 
 const Wordle = () => {
   const dispatch = useDispatch();
