@@ -1,7 +1,7 @@
 
 import { authService } from './authServices';
 
-const API_URL = 'http://localhost:8080/api';
+const API_URL = 'http://localhost:8080/api' || "https://wordle-backend-1fjz.onrender.com/api";
 
 export const gameService = {
   async saveGameResult(gameData) {
