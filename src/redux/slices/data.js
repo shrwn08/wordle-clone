@@ -28,5 +28,6 @@ export const Words = [
 "below","block","blues","bring","build","carry","catch","clean","clear","cling",
 "close","coach","coast","crack","craft","crash","cycle","delta","drive","eager",
 "eight","enter","event","extra","fairy","grand","great","habit","ideal","input",
-"issue","judge","knock","layer","logic","medal","mimic","overt","proud","quota"
+"issue","judge","knock","layer","logic","medal","mimic","overt","proud","quota",
+"about"
 ];

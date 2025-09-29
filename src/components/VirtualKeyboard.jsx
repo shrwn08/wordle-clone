@@ -1,6 +1,12 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
+/**
+ * VirtualKeyboard
+ * Props:
+ *  - onKeyPress(key: string) => void
+ *  - kbStatus: { [LETTER: string]: "correct" | "present" | "absent" }
+ */
 
 const KEYBOARD_ROWS = [
   ["Q","W","E","R","T","Y","U","I","O","P"],
@@ -10,19 +16,22 @@ const KEYBOARD_ROWS = [
 
 const tileClasses = (status) => {
   switch (status) {
-    case "correct": return "bg-success text-white";
-    case "present": return "bg-warning text-white";
-    case "absent":  return "bg-secondary text-white";
-    default:        return "bg-light";
+    case "correct": return "bg-success text-white";    // green
+    case "present": return "bg-warning text-dark";     // yellow
+    case "absent":  return "bg-secondary text-white";  // gray
+    default:        return "bg-light";                 // neutral
   }
 };
 
 const VirtualKeyboard = ({ onKeyPress = () => {}, kbStatus = {} }) => {
   const renderKey = (k) => {
+    const isLetter = k.length === 1;
+    const status = isLetter ? kbStatus[k.toUpperCase()] : undefined;
+    const statusClass = status ? tileClasses(status) : "";
     const isSpecial = k === "ENTER" || k === "BKSP";
-    const statusClass = k.length === 1 ? tileClasses(kbStatus[k]) : "";
+
     const style = {
-      minWidth: isSpecial ? "74px" : "42px",
+      minWidth: isSpecial ? "84px" : "44px",
       height: "48px",
       margin: "4px",
       borderRadius: "6px",
@@ -34,7 +43,7 @@ const VirtualKeyboard = ({ onKeyPress = () => {}, kbStatus = {} }) => {
       <Button
         key={k}
         variant="light"
-        className={`d-inline-flex align-items-center justify-content-center ${statusClass}`}
+        className={`d-inline-flex align-items-center justify-content-center ${statusClass} fw-bold`}
         style={style}
         onClick={() => onKeyPress(k)}
       >
