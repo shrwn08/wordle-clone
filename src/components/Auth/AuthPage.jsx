@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { authService } from '../../services/authService';
+import { authService } from '../../services/authServices';
 import './Auth.css';
 
 const AuthPage = ({ onLogin, theme, toggleTheme }) => {

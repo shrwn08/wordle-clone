@@ -4,7 +4,7 @@ import AuthPage from './components/Auth/AuthPage';
 import GamePage from './components/Game/GamePage';
 import StatsPage from './components/Stats/StatsPage';
 import Navbar from './components/Layout/Navbar';
-import { authService } from './services/authService';
+import { authService } from "./services/authServices.js";
 import './App.css';
 
 function App() {
