@@ -1,16 +1,27 @@
-# React + Vite
+# Wordle Clone 🎯
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **Wordle-style word guessing game** built with **React + Vite**.  
+Players have 6 attempts to guess the hidden 5-letter word. After each guess, both the grid tiles and keyboard keys change color to provide feedback:
 
-Currently, two official plugins are available:
+- 🟩 **Green** → Correct letter in the correct position  
+- 🟨 **Yellow** → Correct letter in the wrong position  
+- ⬜ **Gray** → Letter not in the word  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
+- 6×5 Wordle grid for guesses  
+- Virtual + physical keyboard support  
+- Correct color feedback for tiles and keys  
+- Handles duplicate letters properly (two-pass algorithm)  
+- Fast development with **Vite**  
+- Console errors and warnings fixed  
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/shrwn08/wordle-clone.git
+   cd wordle-clone

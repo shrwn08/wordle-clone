@@ -1,4 +1,4 @@
-// services/authService.js
+
 const API_URL = 'http://localhost:8080/api' || "https://wordle-backend-1fjz.onrender.com/api";
 
 export const authService = {

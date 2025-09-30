@@ -1,4 +1,3 @@
-// components/Game/Keyboard.jsx
 import React from 'react';
 import './Game.css';
 
