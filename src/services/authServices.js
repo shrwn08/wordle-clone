@@ -1,5 +1,5 @@
 const API_URL =
-  "https://wordle-backend-1fjz.onrender.com" ;
+  "https://wordle-backend-1fjz.onrender.com/api" ;
 
 export const authService = {
 
