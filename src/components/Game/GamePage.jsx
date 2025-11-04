@@ -21,7 +21,7 @@ const GamePage = ({ user, theme }) => {
 
   const startNewGame = () => {
     const newWord = getRandomWord();
-    setTargetWord(newWord);
+    setTargetWord(newWord.toUpperCase());
     setGuesses([]);
     setCurrentGuess('');
     setGameStatus('playing');
@@ -82,7 +82,7 @@ const GamePage = ({ user, theme }) => {
     setGuesses(newGuesses);
     setCurrentGuess('');
 
-    if (currentGuess === targetWord) {
+    if (currentGuess.toUpperCase() === targetWord.toUpperCase()) {
       setGameStatus('won');
       await saveGame(true, newGuesses.length);
       showNotification('Congratulations! 🎉');
@@ -97,9 +97,9 @@ const GamePage = ({ user, theme }) => {
   const saveGame = async (won, attempts) => {
     try {
       await gameService.saveGameResult({
-        userId: user._id,
-        won,
-        attempts,
+      
+        won ,
+        guesses: attempts,
         word: targetWord,
       });
     } catch (error) {
@@ -112,14 +112,20 @@ const GamePage = ({ user, theme }) => {
     let status = 'unused';
     const letterUpper = letter.toUpperCase();
 
+    
+
     for (const guess of guesses) {
       const targetLetters = targetWord.toUpperCase().split('');
       const guessLetters = guess.toUpperCase().split('');
+     
 
       // First pass: exact matches (green)
       for (let i = 0; i < 5; i++) {
         if (guessLetters[i] === targetLetters[i]) {
-          if (guessLetters[i] === letterUpper) return 'correct';
+          console.log("test", true);
+          if (guessLetters[i] === letterUpper)
+            
+            return 'correct';
           targetLetters[i] = null;
           guessLetters[i] = null;
         }

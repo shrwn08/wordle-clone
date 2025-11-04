@@ -1,13 +1,15 @@
-
-const API_URL = 'http://localhost:8080/api' || "https://wordle-backend-1fjz.onrender.com/api";
+const API_URL =
+  "https://wordle-backend-1fjz.onrender.com" ;
 
 export const authService = {
+
   async signup(userData) {
     try {
+      
       const response = await fetch(`${API_URL}/auth/signup`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
       });
@@ -15,10 +17,10 @@ export const authService = {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || 'Signup failed');
+        throw new Error(data.message || "Signup failed");
       }
 
-      localStorage.setItem('token', data.token);
+      localStorage.setItem("token", data.token);
       return data.user;
     } catch (error) {
       throw error;
@@ -28,9 +30,9 @@ export const authService = {
   async signin(credentials) {
     try {
       const response = await fetch(`${API_URL}/auth/signin`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(credentials),
       });
@@ -38,10 +40,10 @@ export const authService = {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || 'Signin failed');
+        throw new Error(data.message || "Signin failed");
       }
 
-      localStorage.setItem('token', data.token);
+      localStorage.setItem("token", data.token);
       return data.user;
     } catch (error) {
       throw error;
@@ -51,16 +53,16 @@ export const authService = {
   async verifyToken(token) {
     try {
       const response = await fetch(`${API_URL}/auth/verify`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error('Token verification failed');
+        throw new Error("Token verification failed");
       }
 
       return data.user;
@@ -70,10 +72,10 @@ export const authService = {
   },
 
   logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
   },
 
   getToken() {
-    return localStorage.getItem('token');
-  }
+    return localStorage.getItem("token");
+  },
 };

@@ -29,7 +29,7 @@ export const WORDS = [
 "close","coach","coast","crack","craft","crash","cycle","delta","drive","eager",
 "eight","enter","event","extra","fairy","grand","great","habit","ideal","input",
 "issue","judge","knock","layer","logic","medal","mimic","overt","proud","quota",
-"about","dummy",
+"about","dummy","power","joker","lotus","pause", "boost", "polio", "boult", "brand"
 ];
 
 export const getRandomWord = () => {

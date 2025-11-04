@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { gameService } from '../../services/gameService';
 import './Stats.css';
 
-const StatsPage = ({ user, theme }) => {
+const StatsPage = ({ user}) => {
   const [stats, setStats] = useState(null);
   const [leaderboard, setLeaderboard] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,13 +11,14 @@ const StatsPage = ({ user, theme }) => {
 
   useEffect(() => {
     fetchData();
-  }, [user]);
+   
+  }, []);
 
   const fetchData = async () => {
     try {
       setLoading(true);
       const [userStats, leaderboardData] = await Promise.all([
-        gameService.getUserStats(user._id),
+        gameService.getUserStats(user.id),
         gameService.getLeaderboard()
       ]);
       setStats(userStats);
@@ -150,8 +151,8 @@ const StatsPage = ({ user, theme }) => {
                 <tbody>
                   {leaderboard.map((player, index) => (
                     <tr
-                      key={player._id}
-                      className={player._id === user._id ? 'current-user' : ''}
+                      key={player.id}
+                      className={player.id === user.id ? 'current-user' : ''}
                     >
                       <td className="rank">
                         {index === 0 && '🥇'}
